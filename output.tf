@@ -24,7 +24,7 @@ output "sa_private_key" {
   sensitive   = true
 }
 
-output "sa_name" {
-  value       = module.task.sa_name
-  description = "Service account name"
+output "sa_email" {
+  value       = module.task.sa_email
+  description = "Service account email"
 }
