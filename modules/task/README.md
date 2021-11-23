@@ -40,18 +40,18 @@ module "task" {
 |------|-------------|------|---------|:--------:|
 | vpc_name | The name of the network being created | `any` | n/a | yes |
 | project | The ID of the project where this VPC will be created | `any` | n/a | yes |
-| region |  | string | us-central1 | yes |
-| zone |  | string | us-central1-a | yes |
-| instance_name |  | string | n/a | yes |
-| vpc_subnet_range |  |  | `10.0.1.0/24` | yes |
-| vpc_subnet_name |  |  | `${var.vpc_name}-subnet` | no |
+| region | Region for all resources | string | us-central1 | yes |
+| zone | Zone | string | us-central1-a | yes |
+| instance_name | VM name | string | n/a | yes |
+| vpc_subnet_range | Internal subnet range | string | `10.0.1.0/24` | yes |
+| vpc_subnet_name | Subnet name | string | `${var.vpc_name}-subnet` | no |
 | private_ip_google_access | Access to GCP services without Public IP | bool | `false` | no |
 | machine_type | VM size | string | `g1-small` | no |
 | disk_size_gb | OS disk size | string | `100` | no |
 | service_account_name | Name of the service account | string | n/a | yes |
-| scopes |  | string | `["cloud-platform"]` | no |
-| firewall_tags |  | string | `["instance"]` | no |
-| source_ranges |  | list | n/a | yes |
+| scopes | Scopes | string | `["cloud-platform"]` | no |
+| firewall_tags | Tags | string | `["instance"]` | no |
+| source_ranges | List of public ip for ingress firewall rule | list | n/a | yes |
 | sa_roles | IAM roles to be assigned to the Service account | map | n/a | yes |
 
 ## Outputs
