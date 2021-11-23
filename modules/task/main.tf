@@ -37,10 +37,7 @@ resource "google_project_iam_member" "sa_roles" {
   for_each = var.sa_roles
   project  = var.project
   role     = each.value
-  member   = "serviceAccount:${element(
-    split("/", google_service_account.service_account.name),
-    length(split("/", google_service_account.service_account.name)) - 1,
-  )}"
+  member   = "serviceAccount:${google_service_account.service_account.email}"
 }
 
 resource "google_compute_instance" "default" {
@@ -77,10 +74,7 @@ resource "google_compute_instance" "default" {
   }
 
   service_account {
-    email  = element(
-    split("/", google_service_account.service_account.name),
-    length(split("/", google_service_account.service_account.name)) - 1,
-    )
+    email  = google_service_account.service_account.email
     scopes = var.scopes
   }
 }

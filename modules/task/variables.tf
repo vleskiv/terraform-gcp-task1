@@ -55,17 +55,17 @@ variable "service_account_name" {
 
 variable "scopes" {
   description = "The access to GCP scopes."
-  type        = list
+  type        = list(any)
   default     = ["cloud-platform"]
 }
 
 variable "firewall_tags" {
-  type    = list
+  type    = list(any)
   default = ["instance"]
 }
 
 variable "source_ranges" {
-  type    = list
+  type    = list(any)
   default = []
 }
 

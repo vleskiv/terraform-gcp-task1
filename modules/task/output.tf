@@ -4,7 +4,7 @@ output "vpc_network" {
 }
 
 output "vpc_network_name" {
-  value       = element(split("/", google_compute_network.vpc.self_link), length(split("/", google_compute_network.vpc.self_link)) -1)
+  value       = element(split("/", google_compute_network.vpc.self_link), length(split("/", google_compute_network.vpc.self_link)) - 1)
   description = "network name"
 }
 
@@ -37,4 +37,9 @@ output "sa_private_key" {
   value       = google_service_account_key.sa_key.private_key
   description = "Service account key (json)"
   sensitive   = true
+}
+
+output "sa_email" {
+  value       = google_service_account.service_account.email
+  description = "Service account email"
 }
