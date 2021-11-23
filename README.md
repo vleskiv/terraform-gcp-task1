@@ -1,3 +1,3 @@
 # terraform-gcp-task1
 
-Usage example for [module/task](module/task)
+Usage example for [modules/task](modules/task/README.md)
